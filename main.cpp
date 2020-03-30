@@ -12,23 +12,27 @@ int main(){
     cin >> eps;
     vector<double> x_cur(3,0);
     vector<double> x_prev;
+    vector<double> pr(3,0);
     do
     {
         x_prev = x_cur;
-        cout << "1!" << endl;
         x_cur = F(x_cur);
-        cout << "2!" << endl;
         // вычисляем погрешность
-        err = calc_error(x_prev, x_cur, eps, q);
-        cout << "3! " << err << endl;
-        // выводим на экран
-        cout << "X=";
-        for (int i = 0; i < x_cur.size(); i++) {
-            cout << x_cur[i] << " ";
-        }
-        cout << endl;
-        cout << "Error:" << err;
+        err = calc_error(x_prev, x_cur, eps, q); // погрешность
+
     } while (eps<= err);
 
-
+    // выводим на экран
+    cout << "X=";
+    for (int i = 0; i < x_cur.size(); i++) {
+        cout << x_cur[i] << " ";
+    }
+    cout << endl;
+    cout << "Error:" << err << endl;
+    pr = F(x_cur);
+    cout << "Vector proverki: ";
+    for (int i = 0; i < pr.size(); i++) {
+        cout << pr[i] << " ";
+    }
+    cout << endl;
 }
