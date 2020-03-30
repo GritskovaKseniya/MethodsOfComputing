@@ -15,11 +15,18 @@ int main(){
     do
     {
         x_prev = x_cur;
+        cout << "1!" << endl;
         x_cur = F(x_cur);
+        cout << "2!" << endl;
         // вычисляем погрешность
         err = calc_error(x_prev, x_cur, eps, q);
+        cout << "3! " << err << endl;
         // выводим на экран
-        cout << "X=" << x_cur;
+        cout << "X=";
+        for (int i = 0; i < x_cur.size(); i++) {
+            cout << x_cur[i] << " ";
+        }
+        cout << endl;
         cout << "Error:" << err;
     } while (eps<= err);
 
