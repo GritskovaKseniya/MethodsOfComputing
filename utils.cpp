@@ -16,7 +16,9 @@ double calc_error(vector<double> x, vector<double> y, double eps, double q){
             cout << y[i] << " ";
         }
     cout << endl;*/
-    sqrt((y[0] - x[0])*(y[0] - x[0]) + (y[1] - x[1])*(y[1] - x[1]) + (y[2] - x[2])*(y[2] - x[2]) ) <= eps*(1-q)/q;
+    if(sqrt((y[0] - x[0])*(y[0] - x[0]) + (y[1] - x[1])*(y[1] - x[1]) + (y[2] - x[2])*(y[2] - x[2]) ) <= eps*(1-q)/q){
+        return sqrt((y[0] - x[0])*(y[0] - x[0]) + (y[1] - x[1])*(y[1] - x[1]) + (y[2] - x[2])*(y[2] - x[2]) );
+    }
 }
 
 vector<double> F(vector<double> x){
